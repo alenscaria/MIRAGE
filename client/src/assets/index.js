@@ -9,7 +9,7 @@ import withdraw from './withdraw.svg';
 import tagType from './type.svg';
 import search from './search.svg';
 import menu from './menu.svg';
-import money from './money.svg';
+import warning from './warning.svg';
 import loader from './loader.svg';
 import user from './user.png';
 
@@ -25,7 +25,7 @@ export {
   withdraw,
   search,
   menu,
-  money,
+  warning,
   loader,
   user,
 };
