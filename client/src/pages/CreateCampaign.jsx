@@ -93,21 +93,14 @@ const CreateCampaign = () => {
           />
 
 
-        <FormField 
-            labelName="Document(s) *"                           //ADD A PLUS SYMBOL TO ADD MORE DOCS
-            placeholder="Place document URL of your shipment"
-            inputType="url"
-            value={form.image}
-            handleChange={(e) => handleFormFieldChange('image', e)}
-          />
 
-          <FormField 
-            labelName="Confidential Document(s) *"                           //ADD A PLUS SYMBOL TO ADD MORE DOCS
-            placeholder="Place document URL of your shipment"
-            inputType="url"
-            value={form.image}
-            handleChange={(e) => handleFormFieldChange('image', e)}
-          />
+
+<label for="formFileMultiple" class="form-label">Common Document(s) *</label>
+<input class="form-control" type="file" id="formFileMultiple" multiple />
+
+
+<label for="formFileMultiple" class="form-label">Confidential Document(s) *</label>
+<input class="form-control" type="file" id="formFileMultiple" multiple />
 
 
           <FormField 
@@ -118,11 +111,13 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
 
+          
+          
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 
               btnType="submit"
-              title="Submit new campaign"
+              title="Submit new shipment"
               styles="bg-[#1dc071]"
             />
           </div>
