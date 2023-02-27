@@ -7,7 +7,7 @@ import { CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
 import { user } from '../assets';
 
-const CampaignDetails = () => {
+const ShipmentDetails = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const { donate, getDonations, contract, address } = useStateContext();
@@ -127,4 +127,4 @@ const CampaignDetails = () => {
   )
 }
 
-export default CampaignDetails
+export default ShipmentDetails
