@@ -28,7 +28,7 @@ const Navbar = () => {
           title={address ? 'Create new shipment' : 'Connect'}
           styles={address ? 'bg-[#1dc071]' : 'bg-[#7952b3]'}
           handleClick={() => {
-            if(address) navigate('create-campaign')
+            if(address) navigate('create-shipment')
             else connect()
           }}
         />
@@ -83,7 +83,7 @@ const Navbar = () => {
               title={address ? 'Create new shipment' : 'Connect'}
               styles={address ? 'bg-[#1dc071]' : 'bg-[#7952b3]'}
               handleClick={() => {
-                if(address) navigate('create-campaign')
+                if(address) navigate('create-shipment')
                 else connect();
               }}
             />

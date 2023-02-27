@@ -7,8 +7,8 @@ import { loader } from '../assets';
 const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
   const navigate = useNavigate();
 
-  const handleNavigate = (campaign) => {
-    navigate(`/campaign-details/${campaign.title}`, { state: campaign })
+  const handleNavigate = (shipment) => {
+    navigate(`/shipment-details/${shipment.title}`, { state: shipment })
   }
   
   return (
@@ -26,10 +26,10 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
           </p>
         )}
 
-        {!isLoading && campaigns.length > 0 && campaigns.map((campaign) => <FundCard 
-          key={campaign.id}
-          {...campaign}
-          handleClick={() => handleNavigate(campaign)}
+        {!isLoading && campaigns.length > 0 && campaigns.map((shipment) => <FundCard 
+          key={shipment.id}
+          {...shipment}
+          handleClick={() => handleNavigate(shipment)}
         />)}
       </div>
     </div>

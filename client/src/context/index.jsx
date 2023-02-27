@@ -33,14 +33,14 @@ export const StateContextProvider = ({ children }) => {
   const getCampaigns = async () => {
     const campaigns = await contract.call('getCampaigns');
 
-    const parsedCampaings = campaigns.map((campaign, i) => ({
-      owner: campaign.owner,
-      title: campaign.title,
-      description: campaign.description,
-      target: ethers.utils.formatEther(campaign.target.toString()),
-      deadline: campaign.deadline.toNumber(),
-      amountCollected: ethers.utils.formatEther(campaign.amountCollected.toString()),
-      image: campaign.image,
+    const parsedCampaings = campaigns.map((shipment, i) => ({
+      owner: shipment.owner,
+      title: shipment.title,
+      description: shipment.description,
+      target: ethers.utils.formatEther(shipment.target.toString()),
+      deadline: shipment.deadline.toNumber(),
+      amountCollected: ethers.utils.formatEther(shipment.amountCollected.toString()),
+      image: shipment.image,
       pId: i
     }));
 
@@ -50,7 +50,7 @@ export const StateContextProvider = ({ children }) => {
   const getUserCampaigns = async () => {
     const allCampaigns = await getCampaigns();
 
-    const filteredCampaigns = allCampaigns.filter((campaign) => campaign.owner === address);
+    const filteredCampaigns = allCampaigns.filter((shipment) => shipment.owner === address);
 
     return filteredCampaigns;
   }

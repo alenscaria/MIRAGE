@@ -1,4 +1,4 @@
-import createCampaign from './create-campaign.svg';
+import createCampaign from './create-shipment.svg';
 import dashboard from './dashboard.svg';
 import logo from './logo.svg';
 import logout from './logout.svg';

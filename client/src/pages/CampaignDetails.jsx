@@ -43,7 +43,7 @@ const CampaignDetails = () => {
 
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
-          <img src={state.image} alt="campaign" className="w-full h-[410px] object-cover rounded-xl"/>
+          <img src={state.image} alt="shipment" className="w-full h-[410px] object-cover rounded-xl"/>
           <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
             <div className="absolute h-full bg-[#4acd8d]" style={{ width: `${calculateBarPercentage(state.target, state.amountCollected)}%`, maxWidth: '100%'}}>
             </div>
@@ -96,7 +96,7 @@ const CampaignDetails = () => {
 
           <div className="mt-[20px] flex flex-col p-4 bg-[#ededf5] rounded-[10px]">
             <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#333333]">
-              Fund the campaign
+              Fund the shipment
             </p>
             <div className="mt-[30px]">
               <input 
