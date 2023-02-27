@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
-
+import Stepper from "../components/Stepper";
 import { useStateContext } from '../context';
 import { CustomButton, Loader } from '../components';
 import { calculateBarPercentage, daysLeft } from '../utils';
@@ -44,10 +44,8 @@ const ShipmentDetails = () => {
       <div className="w-full flex md:flex-row flex-col mt-10 gap-[30px]">
         <div className="flex-1 flex-col">
           <img src={state.image} alt="shipment" className="w-full h-[410px] object-cover rounded-xl"/>
-          <div className="relative w-full h-[5px] bg-[#3a3a43] mt-2">
-            <div className="absolute h-full bg-[#4acd8d]" style={{ width: `${calculateBarPercentage(state.target, state.amountCollected)}%`, maxWidth: '100%'}}>
-            </div>
-          </div>
+
+
         </div>
       </div>
 
@@ -58,11 +56,11 @@ const ShipmentDetails = () => {
 
             <div className="mt-[20px] flex flex-row items-center flex-wrap gap-[14px]">
               <div className="w-[52px] h-[52px] flex items-center justify-center rounded-full bg-[#2c2f32] cursor-pointer">
-                <img src={user} alt="user" className="w-[60%] h-[60%] object-contain"/>
+                <img src={user} alt="user" className="w-[100%] h-[100%] object-contain"/>
               </div>
               <div>
                 <h4 className="font-epilogue font-semibold text-[14px] text-white break-all">{state.owner}</h4>
-                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#333333]">10 Campaigns</p>
+                <p className="mt-[4px] font-epilogue font-normal text-[12px] text-[#333333]">Sender</p>
               </div>
             </div>
           </div>
@@ -90,37 +88,13 @@ const ShipmentDetails = () => {
               </div>
           </div>
         </div>
-
+                  {/* Progress Tracking */}
         <div className="flex-1">
-          <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Fund</h4>   
 
-          <div className="mt-[20px] flex flex-col p-4 bg-[#ededf5] rounded-[10px]">
-            <p className="font-epilogue fount-medium text-[20px] leading-[30px] text-center text-[#333333]">
-              Fund the shipment
-            </p>
-            <div className="mt-[30px]">
-              <input 
-                type="number"
-                placeholder="ETH 0.1"
-                step="0.01"
-                className="w-full py-[10px] sm:px-[20px] px-[15px] outline-none border-[1px] border-[#3a3a43] bg-transparent font-epilogue text-black text-[18px] leading-[30px] placeholder:text-[#4b5264] rounded-[10px]"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
-              />
-
-              <div className="my-[20px] p-4 bg-[#13131a] rounded-[10px]">
-                <h4 className="font-epilogue font-semibold text-[14px] leading-[22px] text-white">Back it because you believe in it.</h4>
-                <p className="mt-[20px] font-epilogue font-normal leading-[22px] text-[#808191]">Support the project for no reward, just because it speaks to you.</p>
+              <div className="bg-white flex flex-col gap-10 pt-11 items-center justify-center">
+                <Stepper />
               </div>
-
-              <CustomButton 
-                btnType="button"
-                title="Fund Campaign"
-                styles="w-full bg-[#7952b3]"
-                handleClick={handleDonate}
-              />
-            </div>
-          </div>
+              
         </div>
       </div>
     </div>
