@@ -1,13 +1,43 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
-
+import { useStorageUpload } from '@thirdweb-dev/react'
 import { useStateContext } from '../context';
 import { warning } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
 
+
 const CreateCampaign = () => {
+
+  const [file, setFile] = useState();
+  const { mutateAsync: upload } = useStorageUpload();
+  const [uploadUrl, setUploadUrl] = useState("");
+  const [uploadUrlConf, setUploadUrlConf] = useState("");
+  const uploadToIpfs = async() => {
+    const result = await upload({
+      data: [file],
+      options: {
+        uploadWithGatewayUrl: true,
+        uploadWithoutDirectory: true
+      }
+    });
+    console.log("Upload Url:",result)
+    setUploadUrl(result);
+  };
+
+  const uploadToIpfsConf = async() => {
+    const secret = await upload({
+      data: [file],
+      options: {
+        uploadWithGatewayUrl: true,
+        uploadWithoutDirectory: true
+      }
+    });
+    console.log("Upload Url:",secret)
+    setUploadUrlConf(secret);
+  };
+
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { createCampaign } = useStateContext();
@@ -93,15 +123,54 @@ const CreateCampaign = () => {
           />
 
 
-
-
 <label for="formFileMultiple" class="form-label">Common Document(s) *</label>
-<input class="form-control" type="file" id="formFileMultiple" multiple />
+<input class="form-control" type="file" id="formFileMultiple" multiple 
+  onChange={(e) => {
+    if(e.target.files){
+      setFile(e.target.files[0])
+    }
+  }}
+/>
+<CustomButton
+btnType="button"
+title="upload"
+styles="bg-[#1dc071] w-2/5"
+handleClick={uploadToIpfs}
+/>
+<div>
+  <h4 className='font-epilogue font-semibold text-black text-[18px]'>Upload Url:</h4>
+  <a 
+  href={uploadUrl}
+  className="font-epilogue font-normal text-[#278bdc] text-[15px]"
+  >
+    {uploadUrl}
+  </a>
+</div>
 
 
 <label for="formFileMultiple" class="form-label">Confidential Document(s) *</label>
-<input class="form-control" type="file" id="formFileMultiple" multiple />
-
+<input class="form-control" type="file" id="formFileMultiple" multiple 
+  onChange={(e) => {
+    if(e.target.files){
+      setFile(e.target.files[0])
+    }
+  }}
+  />
+  <CustomButton
+btnType="button"
+title="upload"
+styles="bg-[#1dc071] w-2/5"
+handleClick={uploadToIpfsConf}
+/>
+<div>
+  <h4 className='font-epilogue font-semibold text-black text-[18px]'>Upload Url:</h4>
+  <a 
+  href={uploadUrlConf}
+  className="font-epilogue font-normal text-[#278bdc] text-[15px]"
+  >
+    {uploadUrlConf}
+  </a>
+</div>
 
           <FormField 
             labelName="Image"
