@@ -1,7 +1,12 @@
-//Button at top right near to the profile pic icon +  used in Shipment-details + used as submit button in Create-new-shipment form
+//Connect Button  +  used in Shipment-details +  submit button in Create-new-shipment form
 //initially shows as connect & after connected to the wallet it will show as create-new-shipment
 
 import React from 'react'
+
+// btnType prop is a string that specifies the type of button (submit, reset, or button).
+// title prop is a string that specifies the text to be displayed on the button. 
+// handleClick prop is a function that will be called when the button is clicked. 
+// The styles prop is a string that specifies any additional CSS styles to be applied to the button.
 
 const CustomButton = ({ btnType, title, handleClick, styles }) => {
   return (
