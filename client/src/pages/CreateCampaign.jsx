@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 
 import { useStateContext } from '../context';
-import { money } from '../assets';
+import { warning } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
 
@@ -93,21 +93,14 @@ const CreateCampaign = () => {
           />
 
 
-        <FormField 
-            labelName="Document(s) *"                           //ADD A PLUS SYMBOL TO ADD MORE DOCS
-            placeholder="Place document URL of your shipment"
-            inputType="url"
-            value={form.image}
-            handleChange={(e) => handleFormFieldChange('image', e)}
-          />
 
-          <FormField 
-            labelName="Confidential Document(s) *"                           //ADD A PLUS SYMBOL TO ADD MORE DOCS
-            placeholder="Place document URL of your shipment"
-            inputType="url"
-            value={form.image}
-            handleChange={(e) => handleFormFieldChange('image', e)}
-          />
+
+<label for="formFileMultiple" class="form-label">Common Document(s) *</label>
+<input class="form-control" type="file" id="formFileMultiple" multiple />
+
+
+<label for="formFileMultiple" class="form-label">Confidential Document(s) *</label>
+<input class="form-control" type="file" id="formFileMultiple" multiple />
 
 
           <FormField 
@@ -118,11 +111,19 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
 
+<div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
+          <img src={warning} alt="warning" className="w-[40px] h-[40px] object-contain"/>
+          <h4 className="font-epilogue font-bold text-[25px] text-white ml-[20px]">Check entered details are correct or not. Once Submitted, it cannot be modified!</h4>
+        </div>
+
+
+          
+          
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 
               btnType="submit"
-              title="Submit new campaign"
+              title="Submit new shipment"
               styles="bg-[#1dc071]"
             />
           </div>
