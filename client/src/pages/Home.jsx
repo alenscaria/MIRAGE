@@ -5,7 +5,7 @@ import { useStateContext } from '../context'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [campaigns, setCampaigns] = useState([]);
+  const [shipments, setCampaigns] = useState([]);
 
   const { address, contract, getCampaigns } = useStateContext();
 
@@ -24,7 +24,7 @@ const Home = () => {
     <DisplayCampaigns 
       title="All Campaigns"
       isLoading={isLoading}
-      campaigns={campaigns}
+      shipments={shipments}
     />
   )
 }
