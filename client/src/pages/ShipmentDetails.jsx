@@ -45,11 +45,20 @@ const ShipmentDetails = () => {
         <div className="flex-1 flex-col">
           <img src={state.image} alt="shipment" className="w-full h-[410px] object-cover rounded-xl"/>
 
+                            {/* Progress Tracking */}
+        <div className="flex-1">
+
+<div className="bg-white flex flex-col gap-10 pt-11 items-center justify-center">
+  <Stepper />
+</div>
+
+</div>
+
 
         </div>
       </div>
 
-      <div className="mt-[60px] flex lg:flex-row flex-col gap-5">
+      <div className="mt-[2px] flex lg:flex-row flex-col gap-5">
         <div className="flex-[2] flex flex-col gap-[40px]">
           <div>
             <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Creator</h4>
@@ -69,32 +78,28 @@ const ShipmentDetails = () => {
             <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Story</h4>
 
               <div className="mt-[20px]">
-                <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">{state.description}</p>
+                <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">{state.title}</p>
               </div>
           </div>
 
           <div>
-            <h4 className="font-epilogue font-semibold text-[18px] text-white uppercase">Donators</h4>
-
-              <div className="mt-[20px] flex flex-col gap-4">
-                {donators.length > 0 ? donators.map((item, index) => (
-                  <div key={`${item.donator}-${index}`} className="flex justify-between items-center gap-4">
-                    <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] break-ll">{index + 1}. {item.donator}</p>
-                    <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] break-ll">{item.donation}</p>
-                  </div>
-                )) : (
-                  <p className="font-epilogue font-normal text-[16px] text-[#808191] leading-[26px] text-justify">No donators yet. Be the first one!</p>
-                )}
-              </div>
+          <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">{state.description}</p>
           </div>
-        </div>
-                  {/* Progress Tracking */}
-        <div className="flex-1">
 
-              <div className="bg-white flex flex-col gap-10 pt-11 items-center justify-center">
-                <Stepper />
-              </div>
-              
+          <div>
+          <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">Sender Verified : 10:00AM  , 26- Feb -2023 </p>
+          <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">Shipped Date : 09:30AM   , 27- Feb -2023 </p>
+          <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">Logistics Verified : -</p>
+          <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">Receiver Verified : - </p>
+          </div>
+
+
+          <div>
+          <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">Common Documents : URL </p>
+          <p className="font-epilogue font-normal text-[16px] text-[#333333] leading-[26px] text-justify">Confidential Documents : URL </p>
+          </div>
+
+
         </div>
       </div>
     </div>

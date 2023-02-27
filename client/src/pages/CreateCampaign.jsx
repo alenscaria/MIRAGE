@@ -111,9 +111,9 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
 
-<div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
+<div className="w-full flex justify-start items-center p-4 bg-[#f44336] h-[80px] rounded-[10px]">
           <img src={warning} alt="warning" className="w-[40px] h-[40px] object-contain"/>
-          <h4 className="font-epilogue font-bold text-[25px] text-white ml-[20px]">Check entered details are correct or not. Once Submitted, it cannot be modified!</h4>
+          <h4 className="font-epilogue font-bold text-[20px] text-white ml-[20px]">Check entered details are correct or not. Once Submitted, it cannot be modified!</h4>
         </div>
 
 
