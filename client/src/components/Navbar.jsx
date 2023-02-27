@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-
 import { useStateContext } from '../context';
 import { CustomButton } from './';
 import { logo, menu, search, user } from '../assets';
 import { navlinks } from '../constants';
+
+//isActive: a string that keeps track of the currently active navigation link.
+//toggleDrawer: a boolean value that toggles the visibility of the navigation menu on small screens.
+//uses the useStateContext hook from the application context to get the current wallet address and the connect function to connect to a wallet.
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -35,7 +38,7 @@ const Navbar = () => {
 
         <Link to="/profile">
           <div className="w-[52px] h-[52px] rounded-full bg-[#e9e9ef] flex justify-center items-center cursor-pointer">
-            <img src={user} alt="user" className="w-[60%] h-[60%] object-contain" />
+            <img src={user} alt="user" className="w-[100%] h-[100%] object-contain" />
           </div>
         </Link>
       </div>
@@ -43,7 +46,7 @@ const Navbar = () => {
       {/* Small screen navigation */}
         <div className="sm:hidden flex justify-between items-center relative">
         <div className="w-[40px] h-[40px] rounded-[10px] bg-[#e9e9ef] flex justify-center items-center cursor-pointer">
-            <img src={logo} alt="user" className="w-[60%] h-[60%] object-contain" />
+            <img src={logo} alt="logo" className="w-[60%] h-[60%] object-contain" />
           </div>
 
           <img 

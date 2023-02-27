@@ -1,4 +1,4 @@
-import createCampaign from './create-shipment.svg';
+import createShipment from './create-shipment.svg';
 import dashboard from './dashboard.svg';
 import logo from './logo.svg';
 import logout from './logout.svg';
@@ -15,7 +15,7 @@ import user from './user.png';
 
 export {
   tagType,
-  createCampaign,
+  createShipment,
   dashboard,
   logo,
   logout,
