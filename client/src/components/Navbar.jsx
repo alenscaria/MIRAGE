@@ -25,10 +25,11 @@ const Navbar = () => {
         </div>
       </div>
 
+        {/* LOGO & NAME */}
       <div className='flex'>
-        <img src={logo} className="h-10 ml-3"></img>
-        <div className='ml-2 mt-2'>
-          <p className='font-link text-xl'>MIRAGE</p>
+        <img src={logo} className="h-10 ml-3 mt-1"></img>
+        <div className='ml-3 mt-3'>
+          <p className='font-link text-xl text-[#1a7a4c]'> M I R A G E</p>
         </div>
       </div>
 
