@@ -5,10 +5,10 @@ import FundCard from './FundCard';
 import { loader } from '../assets';
 
 const DisplayCampaigns = ({ title, isLoading, shipments }) => {
-  const navigate = useNavigate(); // the useNavigate hook is used to get a navigation function to programmatically navigate to a new page in the application.
+  const navigate = useNavigate(); // used to get a navigation function to programmatically navigate to a new page in the application.
 
 
-  // The handleNavigate function is defined to handle navigation to a specific shipment's details page when a user clicks on a shipment card.
+  // handles navigation to a specific shipment's details page when a user clicks on a shipment card.
   const handleNavigate = (shipment) => {
     navigate(`/shipment-details/${shipment.title}`, { state: shipment })
   }
