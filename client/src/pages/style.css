@@ -33,3 +33,10 @@
   .card-stepper {
     z-index: 0
   }
+  .heff
+  {
+    border-radius: 54px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow:  6px 6px 4px #e3e3e3,
+                 -6px -6px 4px #ffffff;
+                  }

@@ -5,6 +5,7 @@ import { useStateContext } from '../context';
 import { warning } from '../assets';
 import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
+import "./style.css"
 
 const CreateCampaign = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ const CreateCampaign = () => {
   return (
     <div className="bg-[#f3f3f9] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       {isLoading && <Loader />}
-      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] rounded-[10px]">
+      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] rounded-[10px] heff">
         <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[#0e2238]">Create new Shipment</h1>
       </div>
 

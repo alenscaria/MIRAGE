@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { logo, sun } from '../assets';
 import { navlinks } from '../constants';
-
+import "./index.css"
 
 // If isActive is equal to name, then the bg-[#ffffff] class is added to the div element, 
 // which changes its background color to white. If disabled is falsy, 
