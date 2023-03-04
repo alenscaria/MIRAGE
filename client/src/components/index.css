@@ -1,12 +1,41 @@
 
-.effect
+.effect /* fund card effect*/
 {
-    border-radius: 42px;
-background: #e0e0e0;
-box-shadow:  8px 8px 16px #676767,
-             -8px -8px 16px #ffffff;
+    border-radius: 50px;
+    background: #d8d3d3;
+    box-shadow:  20px 20px 60px #1c1c1c,
+                 -20px -20px 60px #262626;
 }
-.font-link
+.font-link /* logo text */
 {
     font-family: 'Archivo Black', sans-serif;
 }
+.glass 
+{
+  /* From https://css.glass */
+background: rgba(255, 255, 255, 0.22);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.7px);
+-webkit-backdrop-filter: blur(6.7px);
+border: 1px solid rgba(255, 255, 255, 0.54);
+}
+
+.glass-button {
+    display: inline-block;
+    border: 0;
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+  
+  .glass-button:hover {
+    background-color: rgba(255,255,255,0.2);
+  }
+  

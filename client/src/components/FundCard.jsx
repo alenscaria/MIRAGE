@@ -6,8 +6,8 @@ const FundCard = ({ owner, title, description, image, handleClick }) => {
 
   
   return (
-    <div className="sm:w-[288px] w-full rounded-[15px] bg-[#edeef0] cursor-pointer effect" onClick={handleClick}>
-      <img src={image} alt="fund" className="w-full h-[158px] object-cover rounded-[15px]"/>
+    <div className="sm:w-[288px] w-full rounded-[10px] bg-[#edeef0] cursor-pointer effect" onClick={handleClick}>
+      <img src={image} alt="fund" className="w-full h-[158px] object-cover rounded-[10px]"/>
 
       <div className="flex flex-col p-4">
         <div className="flex flex-row items-center mb-[18px]">

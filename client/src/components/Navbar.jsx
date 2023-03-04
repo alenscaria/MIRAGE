@@ -4,6 +4,7 @@ import { useStateContext } from '../context';
 import { CustomButton } from './';
 import { logo, menu, search, user } from '../assets';
 import { navlinks } from '../constants';
+import "./index.css"
 
 //isActive: a string that keeps track of the currently active navigation link.
 //toggleDrawer: a boolean value that toggles the visibility of the navigation menu on small screens.
@@ -17,7 +18,7 @@ const Navbar = () => {
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6">
-      <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#ededf5] rounded-[100px]">
+      <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] glass rounded-[100px]">
         <input type="text" placeholder="Search for shipments" className="flex w-full font-epilogue font-normal text-[14px] placeholder:text-[#989ea6] text-black bg-transparent outline-none" />
 
         <div className="w-[72px] h-full rounded-[20px] bg-[#4acd8d] flex justify-center items-center cursor-pointer">
@@ -29,7 +30,7 @@ const Navbar = () => {
       <div className='flex'>
         <img src={logo} className="h-10 ml-3 mt-1"></img>
         <div className='ml-3 mt-3'>
-          <p className='font-link text-xl text-[#1a7a4c]'> M I R A G E</p>
+          <p className='font-link text-xl text-[#ffffff]'> M I R A G E</p>
         </div>
       </div>
 
@@ -38,8 +39,8 @@ const Navbar = () => {
       <div className="sm:flex hidden flex-row justify-end gap-4">
         <CustomButton
           btnType="button"
-          title={address ? 'Create new shipment' : 'Connect'}
-          styles={address ? 'bg-[#1dc071]' : 'bg-[#7952b3]'}
+          title={address ? 'Create new Shipment' : 'Connect'}
+          styles={address ? 'glass-button' : 'glass-button'}
           handleClick={() => {
             if (address) navigate('create-shipment')
             else connect()
@@ -55,7 +56,7 @@ const Navbar = () => {
 
       {/* Small screen navigation */}
       <div className="sm:hidden flex justify-between items-center relative">
-        <div className="w-[40px] h-[40px] rounded-[10px] bg-[#e9e9ef] flex justify-center items-center cursor-pointer">
+        <div className="w-[40px] h-[40px] rounded-[10px] glass flex justify-center items-center cursor-pointer">
           <img src={logo} alt="logo" className="w-[60%] h-[60%] object-contain" />
         </div>
 
@@ -66,7 +67,7 @@ const Navbar = () => {
           onClick={() => setToggleDrawer((prev) => !prev)}
         />
 
-        <div className={`absolute top-[60px] right-0 left-0 bg-[#e9e9ef] z-10 shadow-secondary py-4 ${!toggleDrawer ? '-translate-y-[100vh]' : 'translate-y-0'} transition-all duration-700`}>
+        <div className={`absolute top-[60px] right-0 left-0 bg-gradient-to-b from-gray-900 to-slate-700 z-10 shadow-secondary py-4 ${!toggleDrawer ? '-translate-y-[100vh]' : 'translate-y-0'} transition-all duration-700`}>
           <ul className="mb-4">
             {navlinks.map((link) => (
               <li
@@ -93,8 +94,8 @@ const Navbar = () => {
           <div className="flex mx-4">
             <CustomButton
               btnType="button"
-              title={address ? 'Create new shipment' : 'Connect'}
-              styles={address ? 'bg-[#1dc071]' : 'bg-[#7952b3]'}
+              title={address ? 'Create new Shipment' : 'Connect'}
+              styles={address ? 'glass-button' : 'glass-button'}
               handleClick={() => {
                 if (address) navigate('create-shipment')
                 else connect();

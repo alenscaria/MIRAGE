@@ -11,7 +11,7 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, value, handl
   return (
     <label className="flex-1 w-full flex flex-col">
       {labelName /* label is rendered only if labelName is provided. */ && (
-        <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#0e2238] mb-[10px]">{labelName}</span>
+        <span className="font-epilogue font-medium text-[14px] leading-[22px] text-[#ffffff] mb-[10px]">{labelName}</span>
       )}
       {isTextArea ? (
         <textarea 
@@ -30,7 +30,7 @@ const FormField = ({ labelName, placeholder, inputType, isTextArea, value, handl
           type={inputType}
           step="0.1" /*  used to allow values to be entered to one decimal place */
           placeholder={placeholder}
-          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#aab1b9] bg-transparent font-epilogue text-[#333333] text-[14px] placeholder:text-[#aab1b9] rounded-[10px] sm:min-w-[300px]"
+          className="py-[15px] sm:px-[25px] px-[15px] outline-none border-[1px] border-[#aab1b9] bg-transparent font-epilogue text-[#ffffff] text-[14px] placeholder:text-[#aab1b9] rounded-[10px] sm:min-w-[300px]"
         />
       )}
     </label>

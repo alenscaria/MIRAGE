@@ -41,10 +41,10 @@ const CreateCampaign = () => {
   }
 
   return (
-    <div className="bg-[#f3f3f9] flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
+    <div className="glassform flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       {isLoading && <Loader />}
-      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] rounded-[10px] heff">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[#0e2238]">Create new Shipment</h1>
+      <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] rounded-[10px]">
+        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[#ffffff]">Create new Shipment</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="w-full mt-[65px] flex flex-col gap-[30px]">
@@ -95,12 +95,12 @@ const CreateCampaign = () => {
 
 
 
-<label for="formFileMultiple" class="form-label">Common Document(s) *</label>
-<input class="form-control" type="file" id="formFileMultiple" multiple />
+<label for="formFileMultiple" class="form-label text-[#ffffff]">Common Document(s) *</label>
+<input class="form-control text-[#ffffff]" type="file" id="formFileMultiple" multiple />
 
 
-<label for="formFileMultiple" class="form-label">Confidential Document(s) *</label>
-<input class="form-control" type="file" id="formFileMultiple" multiple />
+<label for="formFileMultiple" class="form-label text-[#ffffff]">Confidential Document(s) *</label>
+<input class="form-control text-[#ffffff]" type="file" id="formFileMultiple" multiple />
 
 
           <FormField 
@@ -123,8 +123,8 @@ const CreateCampaign = () => {
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 
               btnType="submit"
-              title="Submit new shipment"
-              styles="bg-[#1dc071]"
+              title="Submit"
+              styles="glass-button"
             />
           </div>
       </form>

@@ -25,10 +25,10 @@ const Sidebar = () => {
   return (
     <div className="flex justify-between items-center flex-col sticky top-5 h-[93vh]">
       <Link to="/">
-        <Icon styles="w-[52px] h-[52px] bg-[#ededf5]" imgUrl={logo} />
+        <Icon styles="w-[52px] h-[52px] glass" imgUrl={logo} />
       </Link>
 
-      <div className="flex-1 flex flex-col justify-between items-center bg-[#ededf5] rounded-[20px] w-[76px] py-4 mt-12">
+      <div className="flex-1 flex flex-col justify-between items-center glass rounded-[20px] w-[76px] py-4 mt-12">
         <div className="flex flex-col justify-center items-center gap-3">
           {navlinks.map((link) => (
             <Icon 
