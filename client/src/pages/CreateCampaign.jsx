@@ -44,7 +44,7 @@ const CreateCampaign = () => {
     <div className="glassform flex justify-center items-center flex-col rounded-[10px] sm:p-10 p-4">
       {isLoading && <Loader />}
       <div className="flex justify-center items-center p-[16px] sm:min-w-[380px] rounded-[10px]">
-        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[#ffffff]">Create new Shipment</h1>
+        <h1 className="font-epilogue font-bold sm:text-[25px] text-[18px] leading-[38px] text-[#ffffff]">Create New Shipment</h1>
       </div>
 
       <form onSubmit={handleSubmit} className="w-full mt-[65px] flex flex-col gap-[30px]">
@@ -111,9 +111,9 @@ const CreateCampaign = () => {
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
 
-<div className="w-full flex justify-start items-center p-4 bg-[#f44336] h-[80px] rounded-[10px]">
+<div className="w-full flex justify-start items-center p-4 glasswarning h-[80px] rounded-[10px]">
           <img src={warning} alt="warning" className="w-[40px] h-[40px] object-contain"/>
-          <h4 className="font-epilogue font-bold text-[20px] text-white ml-[20px]">Check entered details are correct or not. Once Submitted, it cannot be modified!</h4>
+          <h4 className="font-epilogue font-bold text-[20px] text-[#ffffff] ml-[20px]">Check entered details are correct or not. Once Submitted, it cannot be modified!</h4>
         </div>
 
 

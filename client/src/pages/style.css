@@ -53,7 +53,7 @@ border: 1px solid rgba(255, 255, 255, 0.54);
 
   .effect /* fund card effect*/
   {
-      border-radius: 50px;
+      border-radius: 20px;
       background: #d8d3d3;
       box-shadow:  20px 20px 60px #403b3b,
                    -20px -20px 60px #262626;
@@ -85,4 +85,14 @@ border: 1px solid rgba(255, 255, 255, 0.54);
 
 .glass-button:hover {
   background-color: rgba(255,255,255,0.2);
+}
+.glasswarning
+{
+  /* From https://css.glass */
+background: rgba(223, 46, 56, 0.42);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(8.2px);
+-webkit-backdrop-filter: blur(8.2px);
+border: 1px solid rgba(223, 46, 56, 0.65);
 }

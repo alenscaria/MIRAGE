@@ -9,11 +9,11 @@ import "./index.css"
 // then the cursor-pointer class is added to the div element, which sets the cursor to pointer when hovered.
 
 const Icon = ({ styles, name, imgUrl, isActive, disabled, handleClick }) => (
-  <div className={`w-[48px] h-[48px] rounded-[10px] ${isActive && isActive === name && 'bg-[#ffffff]'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClick}>
+  <div className={`w-[48px] h-[48px] rounded-[10px] ${isActive && isActive === name && 'bg-[#4acd8d]'} flex justify-center items-center ${!disabled && 'cursor-pointer'} ${styles}`} onClick={handleClick}>
     {!isActive ? (
       <img src={imgUrl} alt="side_logo" className="w-1/2 h-1/2" />
     ) : (
-      <img src={imgUrl} alt="side_logo" className={`w-1/2 h-1/2 ${isActive !== name && 'grayscale'}`} />
+      <img src={imgUrl} alt="side_logo" className={`w-1/2 h-1/2 ${isActive !== name && 'white'}`} />
     )}
   </div>
 )
@@ -45,7 +45,7 @@ const Sidebar = () => {
           ))}
         </div>
 
-        <Icon styles="bg-[#ededf5]" imgUrl={sun} />
+        <Icon styles="" imgUrl={sun} />
       </div>
     </div>
   )
