@@ -2,9 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import FundCard from './FundCard';
+
 import { loader } from '../assets';
 
-const DisplayCampaigns = ({ title, isLoading, shipments }) => {
+const DisplayShipments = ({ title, isLoading, shipments }) => {
   const navigate = useNavigate(); // the useNavigate hook is used to get a navigation function to programmatically navigate to a new page in the application.
 
 
@@ -43,4 +44,4 @@ const DisplayCampaigns = ({ title, isLoading, shipments }) => {
   )
 }
 
-export default DisplayCampaigns
+export default DisplayShipments

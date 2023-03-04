@@ -1,13 +1,14 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-contract Shipment {
+contract Supplychain {
     struct Shipment{
+        address owner;
         string title;
         string category;
-        address sender;
-        address logistics;
-        address receiver;
+        string sender;
+        string logistics;
+        string receiver;
         string description;
         string commonDocuments;
         string confidentialDocuments;
@@ -19,9 +20,9 @@ contract Shipment {
 
     uint256 public numberOfShipments = 0;
 
-    function createShipment(string memory _title, string memory _category, address _sender, address _logistics, address _receiver, string memory _description, string memory _commonDocuments, string memory _confidentialDocuments, string memory _image) public returns (uint256) {
+    function createShipment(address _owner,string memory _title, string memory _category, string memory _sender, string memory _logistics, string memory _receiver, string memory _description, string memory _commonDocuments, string memory _confidentialDocuments, string memory _image) public returns (uint256) {
         Shipment storage shipment = shipments[numberOfShipments];
-
+        shipment.owner = _owner;
         shipment.title = _title;
         shipment.category = _category;
         shipment.sender = _sender;
@@ -30,6 +31,7 @@ contract Shipment {
         shipment.description = _description;
         shipment.commonDocuments = _commonDocuments;
         shipment.confidentialDocuments = _confidentialDocuments;
+        shipment.image = _image;
 
         numberOfShipments++;
 
@@ -48,5 +50,4 @@ contract Shipment {
         return allShipments;
     }
 
-    constructor() {}
 }

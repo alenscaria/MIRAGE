@@ -7,20 +7,24 @@ import { EditionMetadataWithOwnerOutputSchema } from '@thirdweb-dev/sdk';
 const StateContext = createContext();
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract('0xf59A1f8251864e1c5a6bD64020e3569be27e6AA9');
-  const { mutateAsync: createCampaign } = useContractWrite(contract, 'createCampaign');
+  const { contract } = useContract('0xeBadcaADA53BCf83Bb3A7490EfA5b4FBCC4aF712');
+  const { mutateAsync: createShipment } = useContractWrite(contract, 'createShipment');
 
   const address = useAddress();
   const connect = useMetamask();
 
-  const publishCampaign = async (form) => {
+  const publishShipment = async (form) => {
     try {
-      const data = await createCampaign([
+      const data = await createShipment([
         address, // owner
         form.title, // title
-        form.description, // description
-        form.target,
-        new Date(form.deadline).getTime(), // deadline,
+        form.category, // category
+        form.sender, // sender
+        form.logistics, //receiver
+        form.receiver, // receiver
+        form.description,
+        form.commonDocuments,
+        form.confidentialDocuments, 
         form.image
       ])
 
@@ -30,53 +34,33 @@ export const StateContextProvider = ({ children }) => {
     }
   }
 
-  const getCampaigns = async () => {
-    const shipments = await contract.call('getCampaigns');
+  const getShipments = async () => {
+    const shipments = await contract.call('getShipments');
 
-    const parsedCampaings = shipments.map((shipment, i) => ({
+    const parsedShipment = shipments.map((shipment, i) => ({
       owner: shipment.owner,
       title: shipment.title,
+      category: shipment.category,
+      sender: shipment.sender,
+      logistics: shipment.logistics,
+      receiver: shipment.receiver,
       description: shipment.description,
-      target: ethers.utils.formatEther(shipment.target.toString()),
-      deadline: shipment.deadline.toNumber(),
-      amountCollected: ethers.utils.formatEther(shipment.amountCollected.toString()),
+      commonDocuments: shipment.commonDocuments,
+      confidentialDocuments: shipment.confidentialDocuments,
       image: shipment.image,
       pId: i
     }));
 
-    return parsedCampaings;
+    return parsedShipment;
   }
 
-  const getUserCampaigns = async () => {
-    const allCampaigns = await getCampaigns();
+  const getUserShipments = async () => {
+    const allShipments = await getShipments();
 
-    const filteredCampaigns = allCampaigns.filter((shipment) => shipment.owner === address);
+    const filteredShipments = allShipments.filter((shipment) => shipment.owner === address);
 
-    return filteredCampaigns;
+    return filteredShipments;
   }
-
-  const donate = async (pId, amount) => {
-    const data = await contract.call('donateToCampaign', pId, { value: ethers.utils.parseEther(amount)});
-
-    return data;
-  }
-
-  const getDonations = async (pId) => {
-    const donations = await contract.call('getDonators', pId);
-    const numberOfDonations = donations[0].length;
-
-    const parsedDonations = [];
-
-    for(let i = 0; i < numberOfDonations; i++) {
-      parsedDonations.push({
-        donator: donations[0][i],
-        donation: ethers.utils.formatEther(donations[1][i].toString())
-      })
-    }
-
-    return parsedDonations;
-  }
-
 
   return (
     <StateContext.Provider
@@ -84,11 +68,9 @@ export const StateContextProvider = ({ children }) => {
         address,
         contract,
         connect,
-        createCampaign: publishCampaign,
-        getCampaigns,
-        getUserCampaigns,
-        donate,
-        getDonations
+        createShipment: publishShipment,
+        getShipments,
+        getUserShipments,
       }}
     >
       {children}

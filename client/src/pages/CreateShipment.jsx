@@ -8,7 +8,7 @@ import { CustomButton, FormField, Loader } from '../components';
 import { checkIfImage } from '../utils';
 
 
-const CreateCampaign = () => {
+const CreateShipment = () => {
 
   const [file, setFile] = useState();
   const { mutateAsync: upload } = useStorageUpload();
@@ -40,13 +40,16 @@ const CreateCampaign = () => {
 
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const { createCampaign } = useStateContext();
+  const { createShipment } = useStateContext();
   const [form, setForm] = useState({
-    name: '',
     title: '',
+    category: '',
+    sender: '',
+    logistics: '',
+    receiver: '',
     description: '',
-    target: '', 
-    deadline: '',
+    commonDocuments: '',
+    confidentialDocuments: '',
     image: ''
   });
 
@@ -59,8 +62,10 @@ const CreateCampaign = () => {
 
     checkIfImage(form.image, async (exists) => {
       if(exists) {
-        setIsLoading(true)
-        await createCampaign({ ...form, target: ethers.utils.parseUnits(form.target, 18)})
+        setIsLoading(true) 
+        // calling createShipment error.... target was deleted, check alternative.
+        await createShipment({ ...form})
+        
         setIsLoading(false);
         navigate('/');
       } else {
@@ -68,6 +73,7 @@ const CreateCampaign = () => {
         setForm({ ...form, image: '' });
       }
     })
+    console.log(form);
   }
 
   return (
@@ -83,15 +89,15 @@ const CreateCampaign = () => {
             labelName="Sender Address *"
             placeholder="Enter Sender's Wallet Address"
             inputType="text"
-            value={form.name}
-            handleChange={(e) => handleFormFieldChange('name', e)}
+            value={form.sender}
+            handleChange={(e) => handleFormFieldChange('sender', e)}
           />
           <FormField 
             labelName="Receiver Address *"
             placeholder="Enter Receiver's Wallet Address"
             inputType="text"
-            value={form.title}
-            handleChange={(e) => handleFormFieldChange('title', e)}
+            value={form.receiver}
+            handleChange={(e) => handleFormFieldChange('receiver', e)}
           />
         </div>
 
@@ -102,17 +108,25 @@ const CreateCampaign = () => {
             labelName="Logistic Address *"
             placeholder="Enter Logistic's Wallet Address"
             inputType="text"
-            value={form.target}
-            handleChange={(e) => handleFormFieldChange('target', e)}
+            value={form.logistics}
+            handleChange={(e) => handleFormFieldChange('logistics', e)}
           />
           <FormField 
-            labelName="Start Date *"
-            placeholder="Start Date"
-            inputType="date"
-            value={form.deadline}
-            handleChange={(e) => handleFormFieldChange('deadline', e)}
+            labelName="Category *"
+            placeholder="Mention the category"
+            inputType="text"
+            value={form.category}
+            handleChange={(e) => handleFormFieldChange('category', e)}
           />
         </div>
+
+        <FormField 
+            labelName="Title *"
+            placeholder="Enter Title"
+            inputType="text"
+            value={form.title}
+            handleChange={(e) => handleFormFieldChange('title', e)}
+          />
 
         <FormField 
             labelName="Description *"
@@ -123,54 +137,71 @@ const CreateCampaign = () => {
           />
 
 
-<label for="formFileMultiple" class="form-label">Common Document(s) *</label>
-<input class="form-control" type="file" id="formFileMultiple" multiple 
-  onChange={(e) => {
-    if(e.target.files){
-      setFile(e.target.files[0])
-    }
-  }}
-/>
-<CustomButton
-btnType="button"
-title="upload"
-styles="bg-[#1dc071] w-2/5"
-handleClick={uploadToIpfs}
-/>
-<div>
-  <h4 className='font-epilogue font-semibold text-black text-[18px]'>Upload Url:</h4>
-  <a 
-  href={uploadUrl}
-  className="font-epilogue font-normal text-[#278bdc] text-[15px]"
-  >
-    {uploadUrl}
-  </a>
-</div>
+        <label for="formFileMultiple" class="form-label">Common Document(s) *</label>
+        <input class="form-control" type="file" id="formFileMultiple" multiple 
+          onChange={(e) => {
+            if(e.target.files){
+              setFile(e.target.files[0])
+            }
+          }}
+        />
+        <CustomButton
+        btnType="button"
+        title="upload"
+        styles="bg-[#1dc071] w-2/5 hover:bg-[#0e2238]"
+        handleClick={uploadToIpfs}
+        />
+        <div>
+          {/* Ipfs uploaded link */}
+          
+            <FormField 
+              labelName="IPFS Url: "
+              placeholder="Copy and paste the link given below"
+              inputType="text"
+              value={form.commonDocuments}
+              handleChange={(e) => handleFormFieldChange('commonDocuments', e)}
+            />
+            {uploadUrl}
+            <a 
+            href={uploadUrl}
+            >
+              <div className='sm:w-1/5 w-[100px] px-4 py-2 bg-[#1dc071] font-epilogue text-white font-semibold text-[18px] rounded-[17px] justify-center items-center text-center mt-[10px] hover:bg-[#0e2238]'>
+                Link
+              </div>
+            </a>
+        </div>
 
-
-<label for="formFileMultiple" class="form-label">Confidential Document(s) *</label>
-<input class="form-control" type="file" id="formFileMultiple" multiple 
-  onChange={(e) => {
-    if(e.target.files){
-      setFile(e.target.files[0])
-    }
-  }}
-  />
-  <CustomButton
-btnType="button"
-title="upload"
-styles="bg-[#1dc071] w-2/5"
-handleClick={uploadToIpfsConf}
-/>
-<div>
-  <h4 className='font-epilogue font-semibold text-black text-[18px]'>Upload Url:</h4>
-  <a 
-  href={uploadUrlConf}
-  className="font-epilogue font-normal text-[#278bdc] text-[15px]"
-  >
-    {uploadUrlConf}
-  </a>
-</div>
+        <label for="formFileMultiple" class="form-label">Confidential Document(s) *</label>
+        <input class="form-control" type="file" id="formFileMultiple" multiple 
+          onChange={(e) => {
+            if(e.target.files){
+              setFile(e.target.files[0])
+            }
+          }}
+          />
+          <CustomButton
+        btnType="button"
+        title="upload"
+        styles="bg-[#1dc071] w-2/5 hover:bg-[#0e2238]"
+        handleClick={uploadToIpfsConf}
+        />
+        <div>
+          <FormField 
+            labelName="IPFS Url: "
+            placeholder="Copy and paste the link given below"
+            inputType="text"
+            value={form.confidentialDocuments}
+            handleChange={(e) => handleFormFieldChange('confidentialDocuments', e)}
+          />
+          {uploadUrlConf}
+          <a 
+          href={uploadUrl}
+          >
+            <div className='sm:w-1/5 w-[100px] px-4 py-2 bg-[#1dc071] font-epilogue text-white font-semibold text-[18px] rounded-[17px] justify-center items-center text-center mt-[10px] hover:bg-[#0e2238]'>
+              Link
+            </div>
+          </a>
+        </div>
 
           <FormField 
             labelName="Image"
@@ -180,14 +211,10 @@ handleClick={uploadToIpfsConf}
             handleChange={(e) => handleFormFieldChange('image', e)}
           />
 
-<div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
+        <div className="w-full flex justify-start items-center p-4 bg-[#8c6dfd] h-[120px] rounded-[10px]">
           <img src={warning} alt="warning" className="w-[40px] h-[40px] object-contain"/>
           <h4 className="font-epilogue font-bold text-[25px] text-white ml-[20px]">Check entered details are correct or not. Once Submitted, it cannot be modified!</h4>
         </div>
-
-
-          
-          
 
           <div className="flex justify-center items-center mt-[40px]">
             <CustomButton 
@@ -201,4 +228,4 @@ handleClick={uploadToIpfsConf}
   )
 }
 
-export default CreateCampaign
+export default CreateShipment
