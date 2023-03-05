@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react'
 
-import { DisplayCampaigns } from '../components';
+import { DisplayShipments } from '../components';
 import { useStateContext } from '../context'
 
 const Home = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [shipments, setCampaigns] = useState([]);
+  const [shipments, setShipments] = useState([]);
 
-  const { address, contract, getCampaigns } = useStateContext();
+  const { address, contract, getUserShipments } = useStateContext();
 
-  const fetchCampaigns = async () => {
+  const fetchShipments = async () => {
     setIsLoading(true);
-    const data = await getCampaigns();
-    setCampaigns(data);
+    const data = await getUserShipments();
+    setShipments(data);
     setIsLoading(false);
   }
 
   useEffect(() => {
-    if(contract) fetchCampaigns();
+    if(contract) fetchShipments();
   }, [address, contract]);
 
   return (
-    <DisplayCampaigns 
+    <DisplayShipments 
       title="All Shipments"
       isLoading={isLoading}
       shipments={shipments}
