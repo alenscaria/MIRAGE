@@ -1,0 +1,10 @@
+# Uploading files to ipfs using thirdweb
+
+# CLI method
+npx thirdweb@latest upload <path>/<folder>
+
+# In Code
+install thirdweb dependencies
+- @thirdweb-dev/react
+- @thirdweb-dev/sdk
+- @thirdweb-dev/storage
