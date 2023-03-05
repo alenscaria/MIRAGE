@@ -141,8 +141,8 @@ const CreateShipment = () => {
 
 
 
-          <label for="formFileMultiple" class="form-label">Common Document(s) *</label>
-          <input class="form-control" type="file" id="formFileMultiple" multiple 
+          <label for="formFileMultiple" class="form-label font-epilogue font-medium text-[14px] leading-[22px] text-[#ffffff] mb-[10px]">Common Document(s) *</label>
+          <input class="form-control text-white" type="file" id="formFileMultiple" multiple 
             onChange={(e) => {
               if(e.target.files){
                 setFile(e.target.files[0])
@@ -151,7 +151,7 @@ const CreateShipment = () => {
           />
           <CustomButton
           btnType="button"
-          title="upload"
+          title="Upload"
           styles="bg-[#1dc071] w-2/5 hover:bg-[#0e2238]"
           handleClick={uploadToIpfs}
           />
@@ -175,8 +175,8 @@ const CreateShipment = () => {
               </a>
           </div>
   
-          <label for="formFileMultiple" class="form-label">Confidential Document(s) *</label>
-          <input class="form-control" type="file" id="formFileMultiple" multiple 
+          <label for="formFileMultiple" class="form-label font-epilogue font-medium text-[14px] leading-[22px] text-[#ffffff] mb-[10px]">Confidential Document(s) *</label>
+          <input class="form-control text-white" type="file" id="formFileMultiple" multiple 
             onChange={(e) => {
               if(e.target.files){
                 setFile(e.target.files[0])
@@ -185,7 +185,7 @@ const CreateShipment = () => {
             />
             <CustomButton
           btnType="button"
-          title="upload"
+          title="Upload"
           styles="bg-[#1dc071] w-2/5 hover:bg-[#0e2238]"
           handleClick={uploadToIpfsConf}
           />
@@ -229,7 +229,7 @@ const CreateShipment = () => {
             <CustomButton 
               btnType="submit"
               title="Submit"
-              styles="glass-button"
+              styles="bg-[#1dc071] hover:bg-[#0e2238]"
             />
           </div>
       </form>
