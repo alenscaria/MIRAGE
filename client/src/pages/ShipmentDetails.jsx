@@ -57,16 +57,20 @@ const ShipmentDetails = () => {
           <div>
             <h4 className="font-epilogue font-semibold text-[18px] text-black uppercase">Common Documents</h4>
 
-              <div className="mt-[20px] flex flex-col gap-4">
-                {state.commonDocuments}
-              </div>
+              <a href={state.commonDocuments}>
+                <div className="mt-[20px] flex flex-col gap-4 text-[#3285d2] hover:text-[#024787]">
+                  {state.commonDocuments}
+                </div>
+              </a>
           </div>
           <div>
             <h4 className="font-epilogue font-semibold text-[18px] text-black uppercase">Confidential Documents</h4>
 
-              <div className="mt-[20px] flex flex-col gap-4">
-                {state.confidentialDocuments}
-              </div>
+              <a href={state.confidentialDocuments}>
+                <div className="mt-[20px] flex flex-col gap-4 text-[#3285d2] hover:text-[#024787]">
+                  {state.confidentialDocuments}
+                </div>
+              </a>
           </div>
         </div>
 
